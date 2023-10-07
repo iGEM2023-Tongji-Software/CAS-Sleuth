@@ -10,7 +10,7 @@
             </svg>
         </el-col>
         <el-col :span="16">
-            <input class="input custom-input" placeholder="e.g.Genomoviridae sp. " v-model="input">
+            <input class="input custom-input" @keyup.enter="submit" placeholder="e.g.Genomoviridae sp. " v-model="input">
         </el-col>
         <el-col :span="3" class="bott">
             <button @click="submit">
@@ -57,7 +57,9 @@ export default {
     margin-left: 17%;
     color: #000000;
 }
-
+button:hover{
+    cursor: pointer;
+}
 .input {
     margin-top: 2.5%;
     width: 95%;

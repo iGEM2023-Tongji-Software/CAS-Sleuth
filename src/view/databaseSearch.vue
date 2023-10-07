@@ -23,7 +23,7 @@
                     </svg>
                 </el-col>
                 <el-col :span="16">
-                    <input class="input" placeholder="e.g.Genomoviridae sp. " v-model="input">
+                    <input class="input" @keyup.enter="submit" placeholder="e.g.Genomoviridae sp. " v-model="input">
                 </el-col>
                 <el-col :span="3" class="bott">
                     <button @click="submit">
@@ -56,14 +56,30 @@ export default {
     name: 'databaseSearch',
     methods: {
         clear() {
+            this.input=this.input.trim();
+            if(this.input==''||this.input==null||this.input.length===0){
+                this.$message({
+                    message: 'Please enter the name of the virus',
+                    type: 'warning'
+                });
+                return;
+            }
             console.log("before"+this.input);
             this.input= '';
             console.log(this.input);
         },
         submit(){
+            this.input=this.input.trim();
+            if(this.input==''||this.input==null||this.input.length===0){
+                this.$message({
+                    message: 'Please enter the name of the virus',
+                    type: 'warning'
+                });
+                return;
+            }
             //跳转到查询结果页面，且将input传给查询结果页面
             this.$router.push({
-                path: "/databaseView",
+                path: "/databaseResult",
                 query: {
                     input: this.input,
                 },
@@ -196,7 +212,9 @@ button {
     top: 50%;
     transform: translate(-50%, -50%);
 }
-
+button:hover{
+    cursor: pointer;
+}
 button:hover .transition {
     width: 14em;
     height: 14em;

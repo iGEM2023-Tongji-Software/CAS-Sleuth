@@ -1,8 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../view/databaseSearch.vue'
-import HomePageVue from '@/components/HomePage.vue'
-import databaseCard from '@/view/databaseCard.vue'
-import databaseView from '@/view/databaseView.vue'
 
 const routes = [
   {
@@ -13,12 +10,17 @@ const routes = [
   {
     path: '/database',
     name: 'database',
-    component: () => import('../view/databaseSearch.vue')
+    component: () => import('../view/databaseResult.vue')
+  },
+  {
+    path: '/virus/detail',
+    name: 'virusDetail',
+    component: () => import('../view/databaseResult.vue')//稍后自行修改！！
   },
   {
     path: '/software',
     name: 'software',
-    component: () => import( '../view/databaseSearch.vue')
+    component: () => import( '../view/softwareSearch.vue')
   },
   {
     path: '/databaseResult',
@@ -26,21 +28,15 @@ const routes = [
     component: () => import( '../view/databaseResult.vue')
   },
   {
-    path: '/homepage',
-    name: 'homepage',
-    component: HomePageVue
-  },
-  {
     path: '/databaseCard',
     name: 'databaseCard',
-    component: databaseCard
+    component: () => import( '../view/databaseCard.vue')
   },
   {
-    path: '/databaseView',
-    name: 'databaseView',
-    component: databaseView
+    path: '/softwareProcess',
+    name: 'softwareProcess',
+    component: () => import( '../view/softwareProcess.vue')//稍后自行修改！！
   },
-
 ]
 
 const router = createRouter({

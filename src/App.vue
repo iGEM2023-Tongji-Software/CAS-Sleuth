@@ -6,7 +6,7 @@
             </el-col>
             <el-col :span="1" style="margin-top: 1%">
                 <el-row>
-                <router-link to="/databaseView">database</router-link></el-row>
+                <router-link to="/database">database</router-link></el-row>
                 <el-row>
                 <router-link to="/software">software</router-link></el-row>
             </el-col>
