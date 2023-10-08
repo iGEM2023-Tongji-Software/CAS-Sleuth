@@ -162,7 +162,7 @@ import SearchBox from "@/components/SearchBox.vue";
 import loadingLogo from "@/components/loadingLogo.vue";
 import downloadButton from "@/components/download-button.vue";
 import dialogBox from "@/components/dialogBox.vue";
-import {ElMessage} from "element-plus";
+// import {ElMessage} from "element-plus";
 import axios from "axios";
 
 export default {
@@ -205,10 +205,10 @@ export default {
         clickRow(row) {
             // console.log(row);  // 当前点击的行数据
             // console.log(row.index);   // 当前点击的行的索引值
-            ElMessage({
-                message: 'click virus_id :' + row.virus_id,
-                type: 'success'
-            });
+            // ElMessage({
+            //     message: 'click virus_id :' + row.virus_id,
+            //     type: 'success'
+            // });
             //跳转相应的详情页面
             //把tabledata里所有的virus_id提取出来
             const virus_id_list = this.tableData.map(item => item.virus_id);
@@ -225,7 +225,7 @@ export default {
         },
         getData() {
             this.isLoading = true;
-            axios.get('/api/virus/page?name='+this.input+'&pageNum='+this.currentPage+'&pageSize=9').then((res) => {
+            axios.get('http://43.133.192.56:5555/api/virus/page?name='+this.input+'&pageNum='+this.currentPage+'&pageSize=9').then((res) => {
                 console.log("已获取到数据");
                 console.log(res)
                 res= res.data;
