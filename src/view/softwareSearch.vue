@@ -84,7 +84,7 @@
                         <div class="tag tag1">DNA virus</div>
                     </div>
                     <div class="option-box cas12">
-                        <el-radio label="cas12" class="radio">cas 12a</el-radio>
+                        <el-radio label="cas12" class="radio">cas 12</el-radio>
                         <div class=" tag tag2">Retroviral RNA virus</div>
                     </div>
                     <div class="option-box cas13">
@@ -394,7 +394,7 @@ export default {
             formData.append('file', item.raw, item.name);
 
             axios({
-                    url: 'http://43.133.192.56:5555/api/software/upload',
+                    url: 'https://tongji-software-igem2023.com/api/software/upload',
                     method: 'post',
                     data: formData,
                     headers: {

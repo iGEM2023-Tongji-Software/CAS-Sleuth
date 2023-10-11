@@ -1,7 +1,6 @@
 <template>
     <el-dialog custom-class="dialog" v-model="centerDialogVisible" title="Download" width="40%" height="30%" style="background-color: rgb(224,248,238);
 ">
-        <img src="../assets/close.png" class="close_icon" style="width: 6%;height: 15%;"/>
         <span class="form-title">
       File form：Excel
     </span>
@@ -46,7 +45,7 @@ export default {
             console.log(this.radio);
             if (this.radio === 'selected') {
                 //输出文件
-                axios.get('http://43.133.192.56:5555/api/virusList-to-excel?virus_ids=' + this.virus_id_list,
+                axios.get('https://tongji-software-igem2023.com/api/virusList-to-excel?virus_ids=' + this.virus_id_list,
                     {responseType: 'blob'}
                 ).then((res) => {
                     // 将文件下载到本地
@@ -68,7 +67,7 @@ export default {
             }
             if (this.radio === 'all') {
                 //输出文件
-                axios.get('http://43.133.192.56:5555/api/virusList-to-excel/all?name=' + this.virus_name,
+                axios.get('https://tongji-software-igem2023.com/api/virusList-to-excel/all?name=' + this.virus_name,
                     {responseType: 'blob'}
                 ).then((res) => {
                     // 将文件下载到本地

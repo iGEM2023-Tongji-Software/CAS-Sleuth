@@ -446,7 +446,7 @@
                 top: 2.5%;
                 left: 5%;
                 font-family: 'Roboto', sans-serif;
-                font-size: 1rem;
+                font-size: 0.8rem;
                 line-height: 1.5;
                 color: #333;
                 padding: 10px;
@@ -598,7 +598,7 @@ const downloadClicked = async () => {
   try {
     // 发送POST请求并获取文件数据
     const response = await fetch(
-      "http://43.133.192.56:5555/api/software-to-excel",
+      "https://tongji-software-igem2023.com/api/software-to-excel",
       {
         method: "POST",
         headers: {
@@ -660,7 +660,7 @@ onMounted(async () => {
 const get_cas_information = async () => {
   isLoading.value = true;
   await axios({
-    url: "http://43.133.192.56:5555/api/software/process",
+    url: "https://tongji-software-igem2023.com/api/software/process",
     method: "post",
     data: JSON.stringify({
       type: type.value,

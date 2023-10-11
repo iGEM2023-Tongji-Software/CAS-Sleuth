@@ -5,7 +5,7 @@ module.exports = defineConfig({
     devServer: {
         proxy: {
             '/api': {
-                target: 'http://43.133.192.56:5555',
+                target: 'https://tongji-software-igem2023.com',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': ''

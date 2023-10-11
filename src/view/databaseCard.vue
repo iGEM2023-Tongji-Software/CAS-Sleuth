@@ -245,7 +245,7 @@
             }}</el-col>
             <el-col :span="4">Type：</el-col>
             <el-col :span="4" style="font-weight: bold; font-size: large"
-              >DNA Virus</el-col
+              >{{detail.type}}</el-col
             >
           </el-row>
         </div>
@@ -504,7 +504,7 @@
             top: 2.5%;
             left: 5%;
             font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
+            font-size: 0.8rem;
             line-height: 1.5;
             color: #333;
             padding: 10px;
@@ -642,6 +642,7 @@ const detail = ref({
   organism_name: "Giant panda associated gemycircularvirus",
   accession: "NC_075336.1",
   family: "Genomoviridae",
+  type:'DNA Virus'
 });
 const cas_result = ref([]);
 const cas_result_order_by_percentage = ref([]);
@@ -667,10 +668,10 @@ const downloadClicked = () => {
   isClicked.value = true;
   const exportData = ref([]);
   exportData.value.push(
-    "http://43.133.192.56:5555///virus-to-excel?virus_id=" + virus_id.value
+    "https://tongji-software-igem2023.com/api/virus-to-excel?virus_id=" + virus_id.value
   );
   exportData.value.push(
-    "http://43.133.192.56:5555//cas-to-excel?type=" +
+    "https://tongji-software-igem2023.com/api/cas-to-excel?type=" +
       type.value +
       "&virus_id=" +
       virus_id.value
@@ -712,7 +713,7 @@ const get_basic_information = async () => {
   // const data={virus_id:virus_id.value}
   await axios
     .get(
-      "http://43.133.192.56:5555/api/virus/detail?virus_id=" + virus_id.value
+      "https://tongji-software-igem2023.com/api/virus/detail?virus_id=" + virus_id.value
     )
     .then((response) => {
       // 处理成功响应
@@ -726,6 +727,7 @@ const get_basic_information = async () => {
       detail.value.organism_name = response.data.organism_name;
       detail.value.accession = response.data.accession;
       detail.value.family = response.data.family;
+      detail.value.type=response.data.type
     })
     .catch((error) => {
       // 处理错误
@@ -736,7 +738,7 @@ const get_basic_information = async () => {
 const get_cas_information = async () => {
   await axios
     .get(
-      "http://43.133.192.56:5555/api/cas/findAllSeq?type=" +
+      "https://tongji-software-igem2023.com/api/cas/findAllSeq?type=" +
         type.value +
         "&virus_id=" +
         virus_id.value
